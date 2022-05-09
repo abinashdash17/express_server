@@ -13,5 +13,5 @@ app.get('/', (request, response) => {
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`express listening on port${port}`);
+  console.log(`express listening on port (dev and no dev): ${port}`);
 });
