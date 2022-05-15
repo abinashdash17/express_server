@@ -1,14 +1,22 @@
 const express = require('express');
 
-const path = require('path');
+// const path = require('path');
+// const routes = require('./routes/index'); // for complex routing enable this
 
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, './static')));
+// for complex routing
+// app.use('/', routes());
 
+// for simple routing
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, './static/index.html'));
+  response.send('simple homepage');
+});
+app.get('/:pageName', (request, response) => {
+  const { pageName } = request.params;
+  // const { subpage } = request.params;
+  response.send(`other page: ${pageName}`);
 });
 
 app.listen(port, () => {
